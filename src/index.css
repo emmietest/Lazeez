@@ -1,0 +1,234 @@
+/* stylelint-disable at-rule-no-unknown */
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700;900&family=Poppins:wght@600;700;800;900&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --color-background: 210 10% 12%;
+    --color-foreground: 0 0% 98%;
+    --color-primary: 145 65% 33%;
+    --color-primary-foreground: 0 0% 100%;
+    --color-secondary: 145 45% 25%;
+    --color-secondary-foreground: 0 0% 100%;
+    --color-tertiary: 43 82% 55%;
+    --color-tertiary-foreground: 0 0% 10%;
+    --color-neutral: 210 10% 12%;
+    --color-neutral-foreground: 0 0% 98%;
+    --color-success: 145 55% 38%;
+    --color-warning: 43 90% 55%;
+    --color-border: 0 0% 20%;
+    --color-input: 0 0% 20%;
+    --color-ring: 43 82% 55%;
+    --color-muted: 0 0% 20%;
+    --color-muted-foreground: 0 0% 70%;
+    --color-accent: 0 0% 20%;
+    --color-accent-foreground: 0 0% 98%;
+    --color-card: 0 0% 12%;
+    --color-card-foreground: 0 0% 98%;
+    --color-popover: 210 10% 12%;
+    --color-popover-foreground: 0 0% 98%;
+    --color-destructive: 0 62.8% 30.6%;
+    --color-destructive-foreground: 0 0% 98%;
+    
+    --font-sans: "Lato", sans-serif;
+    --font-heading: "Poppins", sans-serif;
+    
+    --gradient-1: linear-gradient(145deg, hsl(145, 65%, 33%) 0%, hsl(145, 50%, 25%) 100%);
+    --gradient-2: linear-gradient(180deg, hsl(145, 60%, 28%) 0%, hsl(43, 82%, 55%) 100%);
+    --button-border-gradient: linear-gradient(90deg, hsl(145, 65%, 33%) 0%, hsl(145, 50%, 25%) 100%);
+    
+    --corner-radius: 8px;
+  }
+
+  * {
+    @apply border-border;
+  }
+
+  html,
+  body {
+    @apply bg-background text-foreground;
+    font-family: var(--font-sans);
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    font-family: var(--font-heading);
+    @apply text-foreground;
+  }
+
+  p,
+  span,
+  div,
+  a,
+  li,
+  label {
+    @apply text-foreground;
+  }
+}
+
+@layer utilities {
+  .perspective-1000 {
+    perspective: 1000px;
+  }
+
+  .transform-style-3d {
+    transform-style: preserve-3d;
+  }
+
+  .backface-hidden {
+    backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
+  }
+
+  .rotate-y-180 {
+    transform: rotateY(180deg);
+  }
+
+  .aurora-text {
+    background: linear-gradient(
+      90deg,
+      hsl(145, 65%, 33%),
+      hsl(43, 82%, 55%),
+      hsl(145, 65%, 33%)
+    );
+    background-size: 200% auto;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    animation: aurora 8s ease infinite;
+  }
+
+  .video-overlay {
+    background: linear-gradient(
+      180deg,
+      rgba(0, 0, 0, 0) 0%,
+      rgba(0, 0, 0, 1) 100%
+    );
+  }
+}
+
+
+@layer utilities {
+  @keyframes fade-up {
+    from {
+      opacity: 0;
+      transform: translateY(8px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  .animate-fade-up {
+    animation: fade-up 520ms cubic-bezier(.2,.9,.2,1) both;
+  }
+
+  @keyframes fade-left {
+    from {
+      opacity: 0;
+      transform: translateX(-28px);
+    }
+    to {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+
+  .animate-fade-left {
+    animation: fade-left 520ms cubic-bezier(.2,.9,.2,1) both;
+  }
+
+  @keyframes fade-right {
+    from {
+      opacity: 0;
+      transform: translateX(28px);
+    }
+    to {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+
+  .animate-fade-right {
+    animation: fade-right 520ms cubic-bezier(.2,.9,.2,1) both;
+  }
+
+  @keyframes float {
+    0% { transform: translateY(0px); }
+    50% { transform: translateY(-6px); }
+    100% { transform: translateY(0px); }
+  }
+
+  .animate-float {
+    animation: float 6s ease-in-out infinite;
+  }
+
+  .btn-sheen {
+    background: linear-gradient(90deg, rgba(255,255,255,0) 0%, rgba(255,255,255,0.14) 50%, rgba(255,255,255,0) 100%);
+    transform: translateX(-120%) rotate(10deg);
+    transition: transform 520ms cubic-bezier(.2,.9,.2,1), opacity 300ms;
+    opacity: 0.95;
+    mix-blend-mode: overlay;
+    pointer-events: none;
+  }
+
+  .group:hover .btn-sheen {
+    transform: translateX(120%) rotate(10deg);
+  }
+
+  /* variant-specific sheen tweaks */
+  .btn-sheen.sheen-variant-gradient {
+    background: linear-gradient(90deg, rgba(255,255,255,0) 0%, rgba(255,255,255,0.22) 50%, rgba(255,255,255,0) 100%);
+    mix-blend-mode: screen;
+  }
+
+  .btn-sheen.sheen-variant-outline {
+    background: linear-gradient(90deg, rgba(255,255,255,0) 0%, rgba(255,255,255,0.08) 50%, rgba(255,255,255,0) 100%);
+    mix-blend-mode: overlay;
+  }
+
+  .btn-sheen.sheen-variant-ghost {
+    background: linear-gradient(90deg, rgba(255,255,255,0) 0%, rgba(255,255,255,0.12) 50%, rgba(255,255,255,0) 100%);
+    mix-blend-mode: lighten;
+  }
+
+  /* gradient variant background helper */
+  .variant-gradient {
+    background: var(--gradient-1);
+    color: color(var(--color-primary-foreground) l);
+  }
+
+  /* ripple effect */
+  .ripple {
+    position: absolute;
+    border-radius: 50%;
+    transform: scale(0);
+    opacity: 0.5;
+    background: rgba(255,255,255,0.18);
+    pointer-events: none;
+    animation: ripple 520ms cubic-bezier(.2,.9,.2,1);
+  }
+
+  @keyframes ripple {
+    to {
+      transform: scale(2.5);
+      opacity: 0;
+    }
+  }
+
+  .glow {
+    box-shadow: 0 8px 30px rgba(43,82,55,0.18);
+  }
+
+  .soft-press:active {
+    transform: scale(.98);
+  }
+}
