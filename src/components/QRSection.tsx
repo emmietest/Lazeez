@@ -52,7 +52,7 @@ const QRSection = () => {
           <div className="fade-in-element flex justify-center">
             <div className="bg-gray-50 p-8 rounded-lg shadow-2xl">
               <img
-                src="/qr-code.png"
+                src="/static/qr-code.png"
                 alt="QR Code for ordering"
                 className="w-80 h-80 object-contain"
                 loading="lazy"

@@ -4,6 +4,22 @@ const Footer = () => {
   return (
     <footer className="bg-secondary text-secondary-foreground py-16 px-8 fade-in-on-scroll">
       <div className="max-w-7xl mx-auto">
+        {/* Map Section */}
+        <div className="mb-16 fade-in-on-scroll">
+          <h3 className="font-heading text-xl font-bold text-foreground mb-6">Find Us</h3>
+          <div className="rounded-lg overflow-hidden shadow-lg h-96">
+            <iframe
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2940.4556029851846!2d-83.48115!3d42.2256!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8824a3e7c3d9d9d9%3A0x5f5f5f5f5f5f5f5f!2s2643%20Ellsworth%20Rd%2C%20Ypsilanti%2C%20MI%2048197!5e0!3m2!1sen!2sus!4v1620000000000"
+              width="100%"
+              height="100%"
+              style={{ border: 0 }}
+              allowFullScreen={true}
+              loading="lazy"
+              referrerPolicy="no-referrer-when-downgrade"
+            />
+          </div>
+        </div>
+
         <div className="grid md:grid-cols-3 gap-12 mb-12">
           {/* Contact Info */}
           <div>

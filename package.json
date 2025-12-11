@@ -3,10 +3,13 @@
   "source": "./index.html",
   "type": "module",
   "name": "lazeez",
+  "homepage": "https://emmietest.github.io/Lazeez/",
   "description": "Lazeez Eats is a Halal-certified Mediterranean restaurant that offers fresh, authentic dishes prepared with the finest ingredients.",
   "scripts": {
     "dev": "vite",
-    "build": "vite build"
+    "build": "vite build",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d dist"
   },
   "dependencies": {
     "@radix-ui/react-accordion": "1.2.1",
@@ -53,6 +56,7 @@
     "@vitejs/plugin-react": "4.3.4",
     "autoprefixer": "^10.4.22",
     "esbuild": "0.25.5",
+    "gh-pages": "^6.3.0",
     "globals": "15.12.0",
     "postcss": "^8.5.6",
     "stylelint": "^16.26.1",
